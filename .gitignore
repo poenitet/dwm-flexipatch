@@ -1,5 +1,5 @@
 *.o
+*.rej
+*.orig
 dwm
 dwm-msg
-config.h
-patches.h

@@ -5,7 +5,7 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 static const unsigned int snap           = 8;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -122,8 +122,8 @@ static const char dmenufont[]            = MAINFONT;
 static char c000000[]                    = "#000000"; // placeholder value
 #endif // BAR_FLEXWINTITLE_PATCH
 
-#define SELCOLOR "#15539e"
-#define FLOATCOLOR "#db8fd9"
+#define SELCOLOR "#7b1fa2"
+#define FLOATCOLOR "#9c27b0"
 
 static char normfgcolor[]                = "#bbbbbb";
 static char normbgcolor[]                = "#222222";
@@ -992,12 +992,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
 	#if FOCUSADJACENTTAG_PATCH
-	{ MODKEY,                       XK_Left,       viewtoleft,             {0} }, // note keybinding conflict with focusdir
-	{ MODKEY,                       XK_Right,      viewtoright,            {0} }, // note keybinding conflict with focusdir
-	{ MODKEY|ShiftMask,             XK_Left,       tagtoleft,              {0} },
-	{ MODKEY|ShiftMask,             XK_Right,      tagtoright,             {0} },
-	{ MODKEY|ControlMask,           XK_Left,       tagandviewtoleft,       {0} },
-	{ MODKEY|ControlMask,           XK_Right,      tagandviewtoright,      {0} },
+	{ MODKEY,                       XK_bracketleft,     viewtoleft,             {0} }, // note keybinding conflict with focusdir
+	{ MODKEY,                       XK_bracketright,    viewtoright,            {0} }, // note keybinding conflict with focusdir
+	{ MODKEY|ShiftMask,             XK_bracketleft,     tagtoleft,              {0} },
+	{ MODKEY|ShiftMask,             XK_bracketright,    tagtoright,             {0} },
+	{ MODKEY|ControlMask,           XK_bracketleft,     tagandviewtoleft,       {0} },
+	{ MODKEY|ControlMask,           XK_bracketright,    tagandviewtoright,      {0} },
 	#endif // FOCUSADJACENTTAG_PATCH
 	#if TAGALL_PATCH
 	{ MODKEY|ShiftMask,             XK_F1,         tagall,                 {.v = "F1"} },

@@ -929,9 +929,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
-	#if COLUMNS_LAYOUT
-	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
-	#endif // COLUMNS_LAYOUT
+	{ MODKEY,                       XK_e,          setlayout,              {.v = &layouts[3]} },
+	{ MODKEY,                       XK_w,          setlayout,              {.v = &layouts[4]} },
 	#if FLEXTILE_DELUXE_LAYOUT
 	{ MODKEY|ControlMask,           XK_t,          rotatelayoutaxis,       {.i = +1 } },   /* flextile, 1 = layout axis */
 	{ MODKEY|ControlMask,           XK_Tab,        rotatelayoutaxis,       {.i = +2 } },   /* flextile, 2 = master axis */
@@ -943,8 +942,8 @@ static Key keys[] = {
 	{ MODKEY|Mod5Mask|Mod1Mask,     XK_Tab,        rotatelayoutaxis,       {.i = -4 } },   /* flextile, 4 = secondary stack axis */
 	{ MODKEY|ControlMask,           XK_Return,     mirrorlayout,           {0} },          /* flextile, flip master and stack areas */
 	#endif // FLEXTILE_DELUXE_LAYOUT
-	{ MODKEY,                       XK_space,      setlayout,              {0} },
-	{ MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} },
+	{ MODKEY|ControlMask,           XK_space,      setlayout,              {0} },
+	{ MODKEY|ShiftMask,             XK_f,          togglefloating,         {0} },
 	#if MAXIMIZE_PATCH
 	{ MODKEY|ControlMask|ShiftMask, XK_h,          togglehorizontalmax,    {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_l,          togglehorizontalmax,    {0} },
@@ -1127,8 +1126,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_numbersign, setborderpx,            {.i = 0 } },
 	#endif // SETBORDERPX_PATCH
 	#if CYCLELAYOUTS_PATCH
-	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },
+	{ MODKEY,                       XK_space,      cyclelayout,            {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_space,      cyclelayout,            {.i = +1 } },
 	#endif // CYCLELAYOUTS_PATCH
 	#if MPDCONTROL_PATCH
 	{ MODKEY,                       XK_F1,         mpdchange,              {.i = -1} },

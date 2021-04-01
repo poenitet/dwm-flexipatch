@@ -440,7 +440,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 0
+#define CYCLELAYOUTS_PATCH 1
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -662,7 +662,7 @@
 /* This patch allows you to move clients around in the stack and swap them with the master.
  * https://dwm.suckless.org/patches/movestack/
  */
-#define MOVESTACK_PATCH 0
+#define MOVESTACK_PATCH 1
 
 /* Adds support for the _NET_CLIENT_LIST_STACKING atom, needed by certain applications like the
  * Zoom video conferencing application.
@@ -673,7 +673,7 @@
 /* Removes the border when there is only one window visible.
  * https://dwm.suckless.org/patches/noborder/
  */
-#define NOBORDER_PATCH 0
+#define NOBORDER_PATCH 1
 
 /* Enable modifying or removing dmenu in config.def.h which resulted previously in a
  * compilation error because two lines of code hardcode dmenu into dwm.
@@ -725,7 +725,7 @@
  * monitor (default).
  * https://dwm.suckless.org/patches/pertag/
  */
-#define PERTAG_PATCH 0
+#define PERTAG_PATCH 1
 
 /* This controls whether or not to also store bar position on a per
  * tag basis, or leave it as one bar per monitor.

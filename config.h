@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
@@ -760,7 +762,11 @@ static const Layout layouts[] = {
 #if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif // NODMENU_PATCH
-static const char *termcmd[]  = { "alacritty", NULL };
+
+#define TERM "alacritty"
+
+static const char *termcmd[]  = { TERM, NULL };
+
 static const char *dmenucmd[] = {
 	"dmenu_run",
 	#if !NODMENU_PATCH
@@ -776,6 +782,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
+
 static const char *roficmd[] = {
 	"rofi",
 	"-show", "drun",
@@ -783,6 +790,27 @@ static const char *roficmd[] = {
 	"-theme", "~/.config/rofi/drun.rasi",
 	NULL
 };
+
+static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *miccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
+
+static const char *brupcmd[] = { "brightnessctl", "s", "5%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "s", "5%-", NULL };
+
+static const char *alttermcmd[] = { "kitty", NULL };
+static const char *browsercmd[] = { "brave", NULL };
+static const char *discordcmd[] = { "discord", NULL };
+static const char *mixercmd[] = { "pavucontrol", NULL };
+static const char *sstoolcmd[] = { "flameshot", NULL };
+static const char *sysmoncmd[] = { TERM, "-e", "htop", NULL };
+static const char *filemgrcmd[] = { "pcmanfm", NULL };
+static const char *screenkeycmd[] = { "screenkey", NULL };
+static const char *codecmd[] = { "code", NULL };
+static const char *nitrogencmd[] = { "nitrogen", NULL };
+static const char *arandrcmd[] = { "arandr", NULL };
+static const char *emacscmd[] = { "emacs", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
@@ -806,6 +834,18 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,          spawn,                  {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY|ControlMask,           XK_Return,     spawn,                  {.v = alttermcmd } },
+	{ MODKEY|ShiftMask,             XK_b,          spawn,                  {.v = browsercmd } },
+	{ MODKEY|ShiftMask,             XK_d,          spawn,                  {.v = discordcmd } },
+	{ MODKEY|ShiftMask,             XK_v,          spawn,                  {.v = mixercmd } },
+	{ MODKEY|ShiftMask,             XK_s,          spawn,                  {.v = sstoolcmd } },
+	{ MODKEY|ShiftMask,             XK_m,          spawn,                  {.v = sysmoncmd } },
+	{ MODKEY|ShiftMask,             XK_f,          spawn,                  {.v = filemgrcmd } },
+	{ MODKEY|ShiftMask,             XK_k,          spawn,                  {.v = screenkeycmd } },
+	{ MODKEY|ShiftMask,             XK_c,          spawn,                  {.v = codecmd } },
+	{ MODKEY|ShiftMask,             XK_w,          spawn,                  {.v = nitrogencmd } },
+	{ MODKEY|ShiftMask,             XK_x,          spawn,                  {.v = arandrcmd } },
+	{ MODKEY|ShiftMask,             XK_e,          spawn,                  {.v = emacscmd } },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
@@ -1163,6 +1203,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                                  6)
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
+	{ 0,                            XF86XK_AudioMute,            spawn,    {.v = mutecmd } },
+	{ 0,                            XF86XK_AudioLowerVolume,     spawn,    {.v = voldowncmd } },
+	{ 0,                            XF86XK_AudioRaiseVolume,     spawn,    {.v = volupcmd } },
+	{ 0,                            XF86XK_MonBrightnessUp,      spawn,    {.v = brupcmd} },
+	{ 0,                            XF86XK_MonBrightnessDown,    spawn,    {.v = brdowncmd} },
 };
 
 #if KEYMODES_PATCH

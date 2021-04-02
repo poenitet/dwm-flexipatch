@@ -5,7 +5,7 @@
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
 static const int corner_radius           = 10;
 #else
-static const unsigned int borderpx       = 1;   /* border pixel of windows */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 static const unsigned int snap           = 8;  /* snap pixel */
 #if SWALLOW_PATCH
@@ -122,48 +122,45 @@ static const char dmenufont[]            = MAINFONT;
 static char c000000[]                    = "#000000"; // placeholder value
 #endif // BAR_FLEXWINTITLE_PATCH
 
-#define SELCOLOR "#7b1fa2"
-#define FLOATCOLOR "#9c27b0"
-
 static char normfgcolor[]                = "#bbbbbb";
 static char normbgcolor[]                = "#222222";
-static char normbordercolor[]            = "#444444";
-static char normfloatcolor[]             = FLOATCOLOR;
+static char normbordercolor[]            = "#111111";
+static char normfloatcolor[]             = "#9c27b0";
 
 static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = SELCOLOR;
-static char selbordercolor[]             = SELCOLOR;
-static char selfloatcolor[]              = SELCOLOR;
+static char selbgcolor[]                 = "#7b1fa2";
+static char selbordercolor[]             = "#7b1fa2";
+static char selfloatcolor[]              = "#7b1fa2";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
 static char titlenormbgcolor[]           = "#222222";
-static char titlenormbordercolor[]       = "#444444";
-static char titlenormfloatcolor[]        = FLOATCOLOR;
+static char titlenormbordercolor[]       = "#111111";
+static char titlenormfloatcolor[]        = "#9c27b0";
 
 static char titleselfgcolor[]            = "#eeeeee";
-static char titleselbgcolor[]            = SELCOLOR;
-static char titleselbordercolor[]        = SELCOLOR;
-static char titleselfloatcolor[]         = SELCOLOR;
+static char titleselbgcolor[]            = "#7b1fa2";
+static char titleselbordercolor[]        = "#7b1fa2";
+static char titleselfloatcolor[]         = "#7b1fa2";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
 static char tagsnormbgcolor[]            = "#222222";
-static char tagsnormbordercolor[]        = "#444444";
-static char tagsnormfloatcolor[]         = FLOATCOLOR;
+static char tagsnormbordercolor[]        = "#111111";
+static char tagsnormfloatcolor[]         = "#9c27b0";
 
 static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = SELCOLOR;
-static char tagsselbordercolor[]         = SELCOLOR;
-static char tagsselfloatcolor[]          = SELCOLOR;
+static char tagsselbgcolor[]             = "#7b1fa2";
+static char tagsselbordercolor[]         = "#7b1fa2";
+static char tagsselfloatcolor[]          = "#7b1fa2";
 
-static char hidfgcolor[]                 = SELCOLOR;
+static char hidfgcolor[]                 = "#7b1fa2";
 static char hidbgcolor[]                 = "#222222";
-static char hidbordercolor[]             = SELCOLOR;
+static char hidbordercolor[]             = "#7b1fa2";
 static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#222222";
 static char urgbordercolor[]             = "#ff0000";
-static char urgfloatcolor[]              = FLOATCOLOR;
+static char urgfloatcolor[]              = "#9c27b0";
 
 #if BAR_FLEXWINTITLE_PATCH
 static char normTTBbgcolor[]             = "#330000";

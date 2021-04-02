@@ -420,8 +420,23 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+	// 1:sys
+	RULE(.class = "Nitrogen", .tags = 1 << 1, .isfloating = 1)
+	// 2:dev
+	RULE(.class = "Emacs", .tags = 1 << 2)
+	RULE(.class = "Code", .tags = 1 << 2)
+	RULE(.class = "Nitrogen", .tags = 1 << 2)
+	// 3:edit
+	RULE(.class = "Gimp", .tags = 1 << 3)
+	// 4:www
+	RULE(.class = "Firefox", .tags = 1 << 4)
+	RULE(.class = "Brave-browser", .tags = 1 << 4)
+	// 5:chat
+	RULE(.class = "discord", .tags = 1 << 5)
+	// 6:sch
+	RULE(.class = "zoom", .tags = 1 << 6)
+	// 8:fun
+	RULE(.class = "Stremio", .tags = 1 << 8)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
@@ -760,6 +775,13 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
+static const char *roficmd[] = {
+	"rofi",
+	"-show", "drun",
+	"-modi", "drun",
+	"-theme", "~/.config/rofi/drun.rasi",
+	NULL
+};
 static const char *termcmd[]  = { "alacritty", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
@@ -782,6 +804,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
 	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,          spawn,                  {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },

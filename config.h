@@ -421,22 +421,22 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	// 1:sys
-	RULE(.class = "Nitrogen", .tags = 1 << 1, .isfloating = 1)
+	RULE(.class = "Nitrogen", .tags = 1 << 0, .isfloating = 1)
+	RULE(.class = "Pcmanfm", .tags = 1 << 0)
 	// 2:dev
-	RULE(.class = "Emacs", .tags = 1 << 2)
-	RULE(.class = "Code", .tags = 1 << 2)
-	RULE(.class = "Nitrogen", .tags = 1 << 2)
+	RULE(.class = "Emacs", .tags = 1 << 1)
+	RULE(.class = "Code", .tags = 1 << 1)
 	// 3:edit
-	RULE(.class = "Gimp", .tags = 1 << 3)
+	RULE(.class = "Gimp", .tags = 1 << 2)
 	// 4:www
-	RULE(.class = "Firefox", .tags = 1 << 4)
-	RULE(.class = "Brave-browser", .tags = 1 << 4)
+	RULE(.class = "Firefox", .tags = 1 << 3)
+	RULE(.class = "Brave-browser", .tags = 1 << 3)
 	// 5:chat
-	RULE(.class = "discord", .tags = 1 << 5)
+	RULE(.class = "discord", .tags = 1 << 4)
 	// 6:sch
-	RULE(.class = "zoom", .tags = 1 << 6)
+	RULE(.class = "zoom", .tags = 1 << 5)
 	// 8:fun
-	RULE(.class = "Stremio", .tags = 1 << 8)
+	RULE(.class = "Stremio", .tags = 1 << 7)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH
@@ -760,6 +760,7 @@ static const Layout layouts[] = {
 #if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif // NODMENU_PATCH
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *dmenucmd[] = {
 	"dmenu_run",
 	#if !NODMENU_PATCH
@@ -782,7 +783,6 @@ static const char *roficmd[] = {
 	"-theme", "~/.config/rofi/drun.rasi",
 	NULL
 };
-static const char *termcmd[]  = { "alacritty", NULL };
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */

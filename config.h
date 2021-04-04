@@ -801,6 +801,7 @@ static const char *brdowncmd[] = { "brightnessctl", "s", "5%-", NULL };
 
 static const char *alttermcmd[] = { "kitty", NULL };
 static const char *browsercmd[] = { "brave", NULL };
+static const char *calccmd[] = { TERM, "-o", "font.size=13", "-e", "qalc", NULL };
 static const char *discordcmd[] = { "discord", NULL };
 static const char *mixercmd[] = { "pavucontrol", NULL };
 static const char *sstoolcmd[] = { "flameshot", NULL };
@@ -836,6 +837,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,     spawn,                  {.v = termcmd } },
 	{ MODKEY|ControlMask,           XK_Return,     spawn,                  {.v = alttermcmd } },
 	{ MODKEY|ControlMask,           XK_b,          spawn,                  {.v = browsercmd } },
+	{ MODKEY|ControlMask,           XK_q,          spawn,                  {.v = calccmd } },
 	{ MODKEY|ControlMask,           XK_d,          spawn,                  {.v = discordcmd } },
 	{ MODKEY|ControlMask,           XK_v,          spawn,                  {.v = mixercmd } },
 	{ MODKEY|ControlMask,           XK_s,          spawn,                  {.v = sstoolcmd } },

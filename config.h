@@ -374,7 +374,7 @@ static Sp scratchpads[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "sys", "dev", "edit", "www", "chat", "sch", "info", "fun", "etc" },
+	[DEFAULT_TAGS]        = { "sys", "dev", "edit", "www", "chat", "sch", "fun", "proc", "etc" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -437,8 +437,8 @@ static const Rule rules[] = {
 	RULE(.class = "discord", .tags = 1 << 4)
 	// 6:sch
 	RULE(.class = "zoom", .tags = 1 << 5)
-	// 8:fun
-	RULE(.class = "Stremio", .tags = 1 << 7)
+	// 7:fun
+	RULE(.class = "Stremio", .tags = 1 << 6)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH

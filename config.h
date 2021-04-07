@@ -812,6 +812,12 @@ static const char *codecmd[] = { "code", NULL };
 static const char *nitrogencmd[] = { "nitrogen", NULL };
 static const char *arandrcmd[] = { "arandr", NULL };
 static const char *emacscmd[] = { "emacs", NULL };
+static const char *cryptocmd[] = {
+    TERM,
+    "-e", "sh",
+    "-c", "watch -c -n 10 coinmon", // run coinmon every 10 sec
+    NULL
+};
 
 #if BAR_STATUSCMD_PATCH && !BAR_DWMBLOCKS_PATCH
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
@@ -839,15 +845,16 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,           XK_b,          spawn,                  {.v = browsercmd } },
 	{ MODKEY|ControlMask,           XK_q,          spawn,                  {.v = calccmd } },
 	{ MODKEY|ControlMask,           XK_d,          spawn,                  {.v = discordcmd } },
-	{ MODKEY|ControlMask,           XK_v,          spawn,                  {.v = mixercmd } },
+	{ MODKEY|ControlMask,           XK_x,          spawn,                  {.v = mixercmd } },
 	{ MODKEY|ControlMask,           XK_s,          spawn,                  {.v = sstoolcmd } },
 	{ MODKEY|ControlMask,           XK_m,          spawn,                  {.v = sysmoncmd } },
 	{ MODKEY|ControlMask,           XK_f,          spawn,                  {.v = filemgrcmd } },
 	{ MODKEY|ControlMask,           XK_k,          spawn,                  {.v = screenkeycmd } },
-	{ MODKEY|ControlMask,           XK_c,          spawn,                  {.v = codecmd } },
+	{ MODKEY|ControlMask,           XK_v,          spawn,                  {.v = codecmd } },
 	{ MODKEY|ControlMask,           XK_w,          spawn,                  {.v = nitrogencmd } },
-	{ MODKEY|ControlMask,           XK_x,          spawn,                  {.v = arandrcmd } },
+	{ MODKEY|ControlMask,           XK_a,          spawn,                  {.v = arandrcmd } },
 	{ MODKEY|ControlMask,           XK_e,          spawn,                  {.v = emacscmd } },
+	{ MODKEY|ControlMask,           XK_c,          spawn,                  {.v = cryptocmd} },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },

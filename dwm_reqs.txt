@@ -1,0 +1,6 @@
+alacritty
+pavucontrol
+nitrogen
+picom
+pcmanfm
+arandr

@@ -131,7 +131,7 @@
 #define BAR_TAGS_PATCH 1
 
 /* Show window title in bar */
-#define BAR_WINTITLE_PATCH 0
+#define BAR_WINTITLE_PATCH 1
 
 /* Shows window titles in the bar, but only for floating clients.
  * This depends on code from the flexwintitle patch.

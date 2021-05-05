@@ -103,7 +103,7 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 
-#define MAINFONT "mononoki Nerd Font:size=11.5:antialias=true:autohint=true"
+#define MAINFONT "JetBrains Mono Nerd Font:size=10.5:antialias=true:autohint=true"
 #define FALLBACK1FONT "Font Awesome 5 Brands:size=11:antialias=true:autohint=true"
 #define FALLBACK2FONT "Font Awesome 5 Free Solid:size=11:antialias=true:autohint=true"
 #define FALLBACK3FONT "Font Awesome 5 Free Regular:size=11:antialias=true:autohint=true"
@@ -127,42 +127,42 @@ static char c000000[]                    = "#000000"; // placeholder value
 static char normfgcolor[]                = "#bbbbbb";
 static char normbgcolor[]                = "#222222";
 static char normbordercolor[]            = "#111111";
-static char normfloatcolor[]             = "#9c27b0";
+static char normfloatcolor[]             = "#5294e2";
 
 static char selfgcolor[]                 = "#eeeeee";
-static char selbgcolor[]                 = "#7b1fa2";
-static char selbordercolor[]             = "#7b1fa2";
-static char selfloatcolor[]              = "#7b1fa2";
+static char selbgcolor[]                 = "#6132be";
+static char selbordercolor[]             = "#6132be";
+static char selfloatcolor[]              = "#6132be";
 
 static char titlenormfgcolor[]           = "#bbbbbb";
 static char titlenormbgcolor[]           = "#222222";
 static char titlenormbordercolor[]       = "#111111";
-static char titlenormfloatcolor[]        = "#9c27b0";
+static char titlenormfloatcolor[]        = "#5294e2";
 
 static char titleselfgcolor[]            = "#eeeeee";
-static char titleselbgcolor[]            = "#7b1fa2";
-static char titleselbordercolor[]        = "#7b1fa2";
-static char titleselfloatcolor[]         = "#7b1fa2";
+static char titleselbgcolor[]            = "#6132be";
+static char titleselbordercolor[]        = "#6132be";
+static char titleselfloatcolor[]         = "#6132be";
 
 static char tagsnormfgcolor[]            = "#bbbbbb";
 static char tagsnormbgcolor[]            = "#222222";
 static char tagsnormbordercolor[]        = "#111111";
-static char tagsnormfloatcolor[]         = "#9c27b0";
+static char tagsnormfloatcolor[]         = "#5294e2";
 
 static char tagsselfgcolor[]             = "#eeeeee";
-static char tagsselbgcolor[]             = "#7b1fa2";
-static char tagsselbordercolor[]         = "#7b1fa2";
-static char tagsselfloatcolor[]          = "#7b1fa2";
+static char tagsselbgcolor[]             = "#6132be";
+static char tagsselbordercolor[]         = "#6132be";
+static char tagsselfloatcolor[]          = "#6132be";
 
-static char hidfgcolor[]                 = "#7b1fa2";
+static char hidfgcolor[]                 = "#6132be";
 static char hidbgcolor[]                 = "#222222";
-static char hidbordercolor[]             = "#7b1fa2";
+static char hidbordercolor[]             = "#6132be";
 static char hidfloatcolor[]              = "#f76e0c";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#222222";
 static char urgbordercolor[]             = "#ff0000";
-static char urgfloatcolor[]              = "#9c27b0";
+static char urgfloatcolor[]              = "#5294e2";
 
 #if BAR_FLEXWINTITLE_PATCH
 static char normTTBbgcolor[]             = "#330000";
@@ -374,7 +374,8 @@ static Sp scratchpads[] = {
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "sys", "dev", "edit", "www", "chat", "sch", "fun", "proc", "etc" },
+	/* [DEFAULT_TAGS]        = { "sys", "dev", "edit", "www", "chat", "sch", "fun", "proc", "etc" }, */
+	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -422,23 +423,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	// 1:sys
-	RULE(.class = "Nitrogen", .tags = 1 << 0, .isfloating = 1)
-	RULE(.class = "Pcmanfm", .tags = 1 << 0)
-	// 2:dev
-	RULE(.class = "Emacs", .tags = 1 << 1)
-	RULE(.class = "Code", .tags = 1 << 1)
-	// 3:edit
-	RULE(.class = "Gimp", .tags = 1 << 2)
-	// 4:www
-	RULE(.class = "Firefox", .tags = 1 << 3)
-	RULE(.class = "Brave-browser", .tags = 1 << 3)
-	// 5:chat
-	RULE(.class = "discord", .tags = 1 << 4)
-	// 6:sch
-	RULE(.class = "zoom", .tags = 1 << 5)
-	// 7:fun
-	RULE(.class = "Stremio", .tags = 1 << 6)
+	RULE(.class = "Nitrogen", .isfloating = 1)
+	RULE(.class = "Gcolor3", .isfloating = 1)
 	#if SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .tags = SPTAG(0), .isfloating = 1)
 	#endif // SCRATCHPADS_PATCH

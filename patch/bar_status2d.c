@@ -87,8 +87,8 @@ drawstatusbar(BarArg *a, char* stext)
 	char *text;
 	char *p;
 	Clr oldbg, oldfg;
-	len = strlen(stext) + 1;
-	if (!(text = (char*) malloc(sizeof(char)*len)))
+	len = strlen(stext);
+	if (!(text = (char*) malloc(sizeof(char)*(len + 1))))
 		die("malloc");
 	p = text;
 	#if BAR_STATUSCMD_PATCH
@@ -118,8 +118,9 @@ drawstatusbar(BarArg *a, char* stext)
 			while (text[++i] != '^') {
 				if (text[i] == 'c') {
 					char buf[8];
-					if (i + 7 > len) {
+					if (i + 7 >= len) {
 						i += 7;
+						len = 0;
 						break;
 					}
 					memcpy(buf, (char*)text+i+1, 7);
@@ -134,8 +135,9 @@ drawstatusbar(BarArg *a, char* stext)
 					i += 7;
 				} else if (text[i] == 'b') {
 					char buf[8];
-					if (i + 7 > len) {
+					if (i + 7 >= len) {
 						i += 7;
+						len = 0;
 						break;
 					}
 					memcpy(buf, (char*)text+i+1, 7);
@@ -203,11 +205,14 @@ drawstatusbar(BarArg *a, char* stext)
 			}
 
 			text = text + i + 1;
-			i=-1;
+			len -= i + 1;
+			i = -1;
 			isCode = 0;
+			if (len <= 0)
+				break;
 		}
 	}
-	if (!isCode) {
+	if (!isCode && len > 0) {
 		w = TEXTWM(text) - lrpad;
 		drw_text(drw, x, y, w, bh, 0, text, 0, True);
 		x += w;
@@ -215,7 +220,7 @@ drawstatusbar(BarArg *a, char* stext)
 	free(p);
 
 	drw_setscheme(drw, scheme[SchemeNorm]);
-	return len - 1;
+	return 1;
 }
 
 int
@@ -260,3 +265,4 @@ status2dtextlength(char* stext)
 	free(p);
 	return w;
 }
+
